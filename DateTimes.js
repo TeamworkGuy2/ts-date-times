@@ -120,14 +120,12 @@ var DateTimes;
     (function (Timestamp) {
         /** the current local timezone offset in milliseconds */
         Timestamp.currentTimezoneOffsetMillis = (new Date().getTimezoneOffset() * 60 * 1000);
-        /**
-         * @return the current UTC time as Unix millisecond timestamp
-         */
+        /** Get the current UTC time as Unix millisecond timestamp */
         function now() {
             return Date.now();
         }
         Timestamp.now = now;
-        /**
+        /** Convert a millisecond UTC timestamp to a Date
          * @param timestamp: convert a timestamp to a {@link Date}
          * @return the date created from the timestamp
          */
@@ -217,4 +215,3 @@ var DateTimes;
     })(Timestamp = DateTimes.Timestamp || (DateTimes.Timestamp = {}));
 })(DateTimes || (DateTimes = {}));
 module.exports = DateTimes;
-//# sourceMappingURL=DateTimes.js.map

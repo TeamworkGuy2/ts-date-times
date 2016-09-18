@@ -5,9 +5,7 @@
  * - Timestamp: working with integer millisecond epoch offsets
  */
 module DateTimes {
-
     export var MS_PER_DAY = 1000 * 60 * 60 * 24;
-
 
 
 
@@ -135,15 +133,13 @@ module DateTimes {
         /** the current local timezone offset in milliseconds */
         export var currentTimezoneOffsetMillis = (new Date().getTimezoneOffset() * 60 * 1000);
 
-        /**
-         * @return the current UTC time as Unix millisecond timestamp
-         */
+        /** Get the current UTC time as Unix millisecond timestamp */
         export function now(): TimestampUtc {
             return Date.now();
         }
 
 
-        /**
+        /** Convert a millisecond UTC timestamp to a Date
          * @param timestamp: convert a timestamp to a {@link Date}
          * @return the date created from the timestamp
          */
