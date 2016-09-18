@@ -4,7 +4,13 @@ This project does its best to adhere to [Semantic Versioning](http://semver.org/
 
 
 --------
-### [0.1.1](N/A) - 2016-09-17
+### [0.1.2](N/A) - 2016-09-17
+#### Changed
+* Forgot a few changes in the last commit for handling TimestampUtc
+
+
+--------
+### [0.1.1](https://github.com/TeamworkGuy2/ts-date-times/commit/989af668dda375558b7725d0d05d73cc0a5b9fcd) - 2016-09-17
 #### Added
 * Timestamps module with utilties for dealing with TimestampUtc including duplicates of DateTimes.Timestamp currentTimezoneOffsetMillis, now(), and toDate()
 

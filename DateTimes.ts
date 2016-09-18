@@ -117,7 +117,7 @@ module DateTimes {
          * (i.e.if {@code incrementAtMidnight == true } then 2001-3-15 2:43 is the same day as 2001-3-15 19:39, even though the dates are more than 12 hours apart)
          */
         export function dayDiff(dtLeft: Date, dtRight: Date, incrementAtMidnight: boolean = false): number {
-            var daysDiff = ((dtLeft.getTime() - dtRight.getTime()) / DateTimes.MS_PER_DAY);
+            var daysDiff = ((<number>dtLeft.getTime() - <number>dtRight.getTime()) / DateTimes.MS_PER_DAY);
             var dateDiff = (incrementAtMidnight ? Math.floor(daysDiff) : Math.round(daysDiff)); // TODO this does not handle leap years or non-gregorian calendar days
             return dateDiff;
         }
@@ -156,12 +156,12 @@ module DateTimes {
          * embeded timezone from the date string or apply no timezone offset if there is none
          * @return the epoch millisecond timestamp value of the input {@code dateString}
          */
-        export function parseDotNetJson(dateString: string | number, ignoreTimezoneAssumeUtc: boolean = true/*TODO workaround for .NET web services returning local timestamps*/): TimestampUtc {
+        export function parseDotNetJson(dateString: string | number | TimestampUtc, ignoreTimezoneAssumeUtc: boolean = true/*TODO workaround for .NET web services returning local timestamps*/): TimestampUtc {
             if (!dateString) {
                 throw new Error("cannot parse '" + dateString + "' date string");
             }
             if (Number.isInteger(<any>dateString)) {
-                return (<number><any>dateString);
+                return (<TimestampUtc><any>dateString);
             }
 
             // Split the date string into parts. e.g. "/Date(1415354400000-0500)/" gets parsed into "1415354400000", "-", and "0500"

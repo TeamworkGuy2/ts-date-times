@@ -12,13 +12,13 @@ module Timestamps {
 
 
     /** Add the two arguments together */
-    export function add(a: TimestampUtc, b: TimestampUtc): TimestampUtc {
+    export function add(a: TimestampUtc | number, b: TimestampUtc | number): TimestampUtc {
         return <TimestampUtc>(<number>a + <number>b);
     }
 
 
     /** Subtract the second argument from the first */
-    export function subtract(a: TimestampUtc, b: TimestampUtc): TimestampUtc {
+    export function subtract(a: TimestampUtc | number, b: TimestampUtc | number): TimestampUtc {
         return <TimestampUtc>(<number>a - <number>b);
     }
 
