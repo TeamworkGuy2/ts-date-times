@@ -4,7 +4,15 @@ This project does its best to adhere to [Semantic Versioning](http://semver.org/
 
 
 --------
-### [0.1.2](N/A) - 2016-09-17
+### [0.2.0](N/A) - 2016-10-08
+#### Changed
+Major refactoring, split DateTimes into:
+* Dates, Timestamps, DotNetJsonDate
+* Removed timezone related parameters from timestamp/dotNetJson methods since these methods should handle timezone automatically and Javascript's Date.now() and getTime() are implicitly UTC which I didn't clearly understand until now
+
+
+--------
+### [0.1.2](https://github.com/TeamworkGuy2/ts-date-times/commit/ce782aa5302cd9977fc07301a7e8a881ee14e8c9) - 2016-09-17
 #### Changed
 * Forgot a few changes in the last commit for handling TimestampUtc
 

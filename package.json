@@ -1,6 +1,6 @@
 {
   "name": "ts-date-times",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "Manage dates, timestamps, and .NET DateTime JSON in TypeScript",
   "dependencies": {
   },
