@@ -29,7 +29,7 @@ suite("DateTimes", function DateTimesTest() {
 
 
     test("DateTimes.MS_PER_DAY", function MS_PER_DAYTest() {
-        asr.equal(DateConstants.MS_PER_DAY, 24 * 60 * 60 * 1000);
+        asr.equal(DateConstants.MILLIS_PER_DAY, 24 * 60 * 60 * 1000);
     });
 
 

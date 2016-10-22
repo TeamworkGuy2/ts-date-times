@@ -4,7 +4,17 @@ This project does its best to adhere to [Semantic Versioning](http://semver.org/
 
 
 --------
-### [0.2.0](N/A) - 2016-10-08
+### [0.3.0](N/A) - 2016-10-22
+#### Added
+* DateConstants MILLIS_PER_WEEK, MONTHS (string array of full names), DAYS_OF_WEEK (string array of full names)
+* DateUtil class with methods like getTimeSince(), isBefore(), getWeekInYear(), getPreviousSunday(), etc.
+
+#### Changed
+* Renamed DateConstants MS_PER_DAY -> MILLIS_PER_DAY
+
+
+--------
+### [0.2.0](https://github.com/TeamworkGuy2/ts-date-times/commit/6340ebcc4a75d02c55f79301fd4c18b1401adfeb) - 2016-10-08
 #### Changed
 Major refactoring, split DateTimes into:
 * Dates, Timestamps, DotNetJsonDate

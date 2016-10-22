@@ -52,7 +52,7 @@ var Dates;
      */
     function dayDiff(dtLeft, dtRight, incrementAtMidnight) {
         if (incrementAtMidnight === void 0) { incrementAtMidnight = false; }
-        var daysDiff = ((dtLeft.getTime() - dtRight.getTime()) / DateConstants.MS_PER_DAY);
+        var daysDiff = ((dtLeft.getTime() - dtRight.getTime()) / DateConstants.MILLIS_PER_DAY);
         var dateDiff = (incrementAtMidnight ? Math.floor(daysDiff) : Math.round(daysDiff)); // TODO this does not handle leap years or non-gregorian calendar days
         return dateDiff;
     }
