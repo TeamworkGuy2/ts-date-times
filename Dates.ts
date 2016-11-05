@@ -13,7 +13,7 @@ module Dates {
     }
 
 
-    /** Convert a date to a date string. The display date is in the current timezone.
+    /** Convert a date to a string. The display date is in the current timezone.
      * @param date: the date to convert to a display date string
      * @param [separator='/']: optional separator such as '/' or '-' to separate the 'mm', 'dd', and 'yyyy' portions of the returned date string
      * @return the date represented by the timestamp in the format 'mm/dd/yyyy'
@@ -26,7 +26,7 @@ module Dates {
     }
 
 
-    /** Convert a date to a date-time string. The display date is in the current timezone.
+    /** Convert a date to a date-time string. The display date-time is in the current timezone.
      * @param date: the date to convert to a date-time string
      * @param [includingMidnight=false]: if true AND date is midnight, returns only the 'mm/dd/yyyy' portion of the date representation
      * @return the date-time representated by the timestamp in the format 'mm/dd/yyyy hh:mm am/pm'
@@ -50,7 +50,7 @@ module Dates {
 
     /** Calculates the number of days between {@code dtLeft - dtRight}
      * @param [incrementAtMidnight=false]: if true, assumes dtRight's time is midnight and counts from dtRight's date
-     * (i.e.if {@code incrementAtMidnight == true } then 2001-3-15 2:43 is the same day as 2001-3-15 19:39, even though the dates are more than 12 hours apart)
+     * (i.e.if {@code incrementAtMidnight == true} then 2001-3-15 2:43 is the same day as 2001-3-15 19:39, even though the dates are more than 12 hours apart)
      */
     export function dayDiff(dtLeft: Date, dtRight: Date, incrementAtMidnight: boolean = false): number {
         var daysDiff = ((<number>dtLeft.getTime() - <number>dtRight.getTime()) / DateConstants.MILLIS_PER_DAY);

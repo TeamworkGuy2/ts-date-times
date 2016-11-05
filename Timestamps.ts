@@ -3,6 +3,8 @@ import Dates = require("./Dates");
 /** Create, parse, stringify, and other helpers for the TimestampUtc type
  */
 module Timestamps {
+    var dotNetJsonDateRegex = /(\d+)|([+-])|(\d{4})/g;
+
 
     /** Get the current UTC time as Unix millisecond timestamp */
     export function now(): TimestampUtc {
@@ -51,14 +53,14 @@ module Timestamps {
      */
     export function parseDotNetJson(dateString: string | number | TimestampUtc, errorIfNoneUtcTimezone: boolean = true): TimestampUtc {
         if (!dateString) {
-            throw new Error("cannot parse '" + dateString + "' date string");
+            throw new Error("cannot parse null or empty date string '" + dateString + "'");
         }
         if (Number.isInteger(<any>dateString)) {
             return <TimestampUtc><any>dateString;
         }
 
         // Split the date string into parts. e.g. "/Date(1415354400000-0500)/" gets parsed into "1415354400000", "-", and "0500"
-        var dateObj = (<string>dateString).match(/(\d+)|([+-])|(\d{4})/g);
+        var dateObj = (<string>dateString).match(dotNetJsonDateRegex);
         var timeZoneOffsetMs = 0;
         if (dateObj.length > 2) {
             // parse the '+/- ####' timezone offset at the end of the date string as a 'hhmm' timezone offset
@@ -69,9 +71,10 @@ module Timestamps {
             }
             var timeZoneOffsetHrMin = (sign === '+' ? -1 : 1) * offsetVal;
             timeZoneOffsetMs = (Math.round(timeZoneOffsetHrMin / 100) * 60 + timeZoneOffsetHrMin % 100) * 60 * 1000;
-        }
-        if (errorIfNoneUtcTimezone && timeZoneOffsetMs !== 0) {
-            throw new Error("invalid date timezone '" + dateString + "', expected UTC");
+
+            if (errorIfNoneUtcTimezone && timeZoneOffsetMs !== 0) {
+                throw new Error("invalid date timezone '" + dateString + "', expected UTC");
+            }
         }
 
         var time = parseInt(dateObj[0], 10) + timeZoneOffsetMs;
@@ -84,7 +87,7 @@ module Timestamps {
      * @return a .NET web service date-time string representation
      */
     export function toDotNetJson(timestamp: TimestampUtc): string {
-        var dateStr = "/Date(" + (timestamp || Date.now()) + ")/";
+        var dateStr = "/Date(" + (timestamp || 0) + ")/";
         return dateStr;
     }
 

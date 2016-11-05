@@ -4,6 +4,7 @@ var Dates = require("./Dates");
  */
 var Timestamps;
 (function (Timestamps) {
+    var dotNetJsonDateRegex = /(\d+)|([+-])|(\d{4})/g;
     /** Get the current UTC time as Unix millisecond timestamp */
     function now() {
         return Date.now();
@@ -47,13 +48,13 @@ var Timestamps;
     function parseDotNetJson(dateString, errorIfNoneUtcTimezone) {
         if (errorIfNoneUtcTimezone === void 0) { errorIfNoneUtcTimezone = true; }
         if (!dateString) {
-            throw new Error("cannot parse '" + dateString + "' date string");
+            throw new Error("cannot parse null or empty date string '" + dateString + "'");
         }
         if (Number.isInteger(dateString)) {
             return dateString;
         }
         // Split the date string into parts. e.g. "/Date(1415354400000-0500)/" gets parsed into "1415354400000", "-", and "0500"
-        var dateObj = dateString.match(/(\d+)|([+-])|(\d{4})/g);
+        var dateObj = dateString.match(dotNetJsonDateRegex);
         var timeZoneOffsetMs = 0;
         if (dateObj.length > 2) {
             // parse the '+/- ####' timezone offset at the end of the date string as a 'hhmm' timezone offset
@@ -64,9 +65,9 @@ var Timestamps;
             }
             var timeZoneOffsetHrMin = (sign === '+' ? -1 : 1) * offsetVal;
             timeZoneOffsetMs = (Math.round(timeZoneOffsetHrMin / 100) * 60 + timeZoneOffsetHrMin % 100) * 60 * 1000;
-        }
-        if (errorIfNoneUtcTimezone && timeZoneOffsetMs !== 0) {
-            throw new Error("invalid date timezone '" + dateString + "', expected UTC");
+            if (errorIfNoneUtcTimezone && timeZoneOffsetMs !== 0) {
+                throw new Error("invalid date timezone '" + dateString + "', expected UTC");
+            }
         }
         var time = parseInt(dateObj[0], 10) + timeZoneOffsetMs;
         return time;
@@ -77,7 +78,7 @@ var Timestamps;
      * @return a .NET web service date-time string representation
      */
     function toDotNetJson(timestamp) {
-        var dateStr = "/Date(" + (timestamp || Date.now()) + ")/";
+        var dateStr = "/Date(" + (timestamp || 0) + ")/";
         return dateStr;
     }
     Timestamps.toDotNetJson = toDotNetJson;

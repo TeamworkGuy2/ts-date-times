@@ -4,7 +4,21 @@ This project does its best to adhere to [Semantic Versioning](http://semver.org/
 
 
 --------
-### [0.3.0](N/A) - 2016-10-22
+### [0.4.0](N/A) - 2016-11-05
+#### Added
+Some method documentation
+
+#### Changed
+* DotNetJsonDate:
+  * parseDotNetJson() now throws an error when a null or empty argument is passed in
+  * toDotNetJson() now throws an error if the date argument is null or invalid
+* Timestamps
+  * toDotNetJson() defaults to 0 if the timestamp argument is null instead of the current date
+* Small unit tests update
+
+
+--------
+### [0.3.0](https://github.com/TeamworkGuy2/ts-date-times/commit/58943906c63af9351bb60114959305cd60baa609) - 2016-10-22
 #### Added
 * DateConstants MILLIS_PER_WEEK, MONTHS (string array of full names), DAYS_OF_WEEK (string array of full names)
 * DateUtil class with methods like getTimeSince(), isBefore(), getWeekInYear(), getPreviousSunday(), etc.

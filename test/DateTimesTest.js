@@ -11,14 +11,16 @@ suite("DateTimes", function DateTimesTest() {
         var jsonTimestamp = DotNetJsonDate.toDotNetJson(date);
         var res = DotNetJsonDate.parseDotNetJson(jsonTimestamp);
         asr.equal(date.getTime(), res.getTime());
+        asr.equal(new Date(0).getTime(), DotNetJsonDate.parseDotNetJson(Timestamps.toDotNetJson(null)).getTime());
     }
     function testDotNetJsonTimestamp(asr) {
         var now = Date.now();
         var jsonTimestamp = Timestamps.toDotNetJson(now);
         var res = Timestamps.parseDotNetJson(jsonTimestamp);
         asr.equal(now, res);
+        asr.equal(new Date(0).getTime(), Timestamps.parseDotNetJson(Timestamps.toDotNetJson(null)));
     }
-    test("DateTimes.MS_PER_DAY", function MS_PER_DAYTest() {
+    test("DateTimes.MILLIS_PER_DAY", function MS_PER_DAYTest() {
         asr.equal(DateConstants.MILLIS_PER_DAY, 24 * 60 * 60 * 1000);
     });
     test("DotNetJsonDate.parseDotNetJson", function parseDotNetJsonTest() {
@@ -70,9 +72,6 @@ suite("DateTimes", function DateTimesTest() {
         testDotNetJsonTimestamp(asr);
     });
     test("Timestamp.toDotNetJson", function toDotNetJsonTest() {
-        testDotNetJsonTimestamp(asr);
-    });
-    test("Timestamp.toUtcDotNetJson", function toUtcDotNetJsonTest() {
         testDotNetJsonTimestamp(asr);
     });
     test("Timestamp.getDayMinutes", function getDayMinutesTest() {
