@@ -4,7 +4,13 @@ This project does its best to adhere to [Semantic Versioning](http://semver.org/
 
 
 --------
-### [0.4.0](N/A) - 2016-11-05
+### [0.4.1](N/A) - 2016-11-07
+#### Changed
+* toDotNetJson() to handle date.getTime() returning a TimestampUtc
+
+
+--------
+### [0.4.0](https://github.com/TeamworkGuy2/ts-date-times/commit/1cd6d5acd935236c3bf002f508bebcff1bb0e3bf) - 2016-11-05
 #### Added
 Some method documentation
 

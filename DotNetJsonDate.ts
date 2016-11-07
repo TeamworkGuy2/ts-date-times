@@ -26,7 +26,7 @@ module DotNetJsonDate {
      */
     export function toDotNetJson(date?: Date): string {
         var time: number;
-        if (date == null || isNaN(time = date.getTime())) {
+        if (date == null || isNaN(time = <number>date.getTime())) {
             throw new Error("cannot convert null or invalid date to .NET JSON string");
         }
         return Timestamps.toDotNetJson(time);
