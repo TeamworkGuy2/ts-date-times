@@ -4,7 +4,13 @@ This project does its best to adhere to [Semantic Versioning](http://semver.org/
 
 
 --------
-### [0.4.1](N/A) - 2016-11-07
+### [0.5.0](N/A) - 2016-12-21
+#### Changed
+TimestampUtc interface now extends Number and has a marker property so that it behaves as a strong type
+
+
+--------
+### [0.4.1](https://github.com/TeamworkGuy2/ts-date-times/commit/ab5f3a32b6439c14a8d8e10b2c9beb2dd85f10af) - 2016-11-07
 #### Changed
 * toDotNetJson() to handle date.getTime() returning a TimestampUtc
 

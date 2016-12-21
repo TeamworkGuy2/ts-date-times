@@ -8,19 +8,19 @@ module Timestamps {
 
     /** Get the current UTC time as Unix millisecond timestamp */
     export function now(): TimestampUtc {
-        return Date.now();
+        return <TimestampUtc><any>Date.now();
     }
 
 
     /** Add the two arguments together */
     export function add(a: TimestampUtc | number, b: TimestampUtc | number): TimestampUtc {
-        return <TimestampUtc>(<number>a + <number>b);
+        return <TimestampUtc><Number>(<number>a + <number>b);
     }
 
 
     /** Subtract the second argument from the first */
     export function subtract(a: TimestampUtc | number, b: TimestampUtc | number): TimestampUtc {
-        return <TimestampUtc>(<number>a - <number>b);
+        return <TimestampUtc><Number>(<number>a - <number>b);
     }
 
 
@@ -30,7 +30,7 @@ module Timestamps {
      */
     export function parseUtc(timestamp: number | string | TimestampUtc): TimestampUtc {
         var val = parseInt(<any>timestamp);
-        return <TimestampUtc>(isNaN(val) || !isFinite(val) ? null : val);
+        return <TimestampUtc><Number>(isNaN(val) || !isFinite(val) ? null : val);
     }
 
 
@@ -39,7 +39,7 @@ module Timestamps {
      * @return the date created from the timestamp
      */
     export function toDate(timestamp: TimestampUtc): Date {
-        return new Date(<number>timestamp);
+        return new Date(<number><Number>timestamp);
     }
 
 
@@ -78,7 +78,7 @@ module Timestamps {
         }
 
         var time = parseInt(dateObj[0], 10) + timeZoneOffsetMs;
-        return time;
+        return <TimestampUtc><Number>time;
     }
 
 
@@ -97,7 +97,7 @@ module Timestamps {
      * @return the number of minutes that have elapsed since the last midnight of the timestamp's date
      */
     export function getDayMinutes(timestamp: TimestampUtc): number {
-        return Dates.getDayMinutes(new Date(<number>timestamp));
+        return Dates.getDayMinutes(new Date(<number><Number>timestamp));
     }
 
 
@@ -107,7 +107,7 @@ module Timestamps {
      * @return the date represented by the timestamp in the format 'mm/dd/yyyy'
      */
     export function toDisplayDate(timestamp: TimestampUtc, separator?: string): string {
-        return Dates.toDisplayDate(new Date(<number>timestamp), separator);
+        return Dates.toDisplayDate(new Date(<number><Number>timestamp), separator);
     }
 
 
@@ -116,7 +116,7 @@ module Timestamps {
      * @return the date-time representated by the timestamp in the format 'mm/dd/yyyy hh:mm am/pm'
      */
     export function toDisplayDateTime(timestamp: TimestampUtc, includingMidnight?: boolean): string {
-        return Dates.toDisplayDateTime(new Date(<number>timestamp), includingMidnight);
+        return Dates.toDisplayDateTime(new Date(<number><Number>timestamp), includingMidnight);
     }
 
 }

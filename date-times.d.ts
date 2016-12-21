@@ -1,5 +1,6 @@
 
 /** Unix epoch UTC millisecond timestamp
  */
-declare interface TimestampUtc {
+declare interface TimestampUtc extends Number {
+    "date-times-TimestampUtc": void;
 }

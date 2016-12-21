@@ -15,7 +15,7 @@ module DotNetJsonDate {
         // parseDotNetJson() will handle null/empty values and throw an error
         var time = Timestamps.parseDotNetJson(dateStr);
         // Use the UTC epoch timestamp to create a local date
-        return new Date(<number>time);
+        return new Date(time);
     }
 
 
@@ -29,7 +29,7 @@ module DotNetJsonDate {
         if (date == null || isNaN(time = <number>date.getTime())) {
             throw new Error("cannot convert null or invalid date to .NET JSON string");
         }
-        return Timestamps.toDotNetJson(time);
+        return Timestamps.toDotNetJson(<TimestampUtc><any>time);
     }
 
 }
