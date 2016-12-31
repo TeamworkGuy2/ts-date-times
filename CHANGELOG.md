@@ -4,9 +4,15 @@ This project does its best to adhere to [Semantic Versioning](http://semver.org/
 
 
 --------
-### [0.5.0](N/A) - 2016-12-21
+### [0.6.0](N/A) - 2016-12-31
 #### Changed
-TimestampUtc interface now extends Number and has a marker property so that it behaves as a strong type
+* TimestampUtc better nominal type behavior, changed from an `interface` to a `type` which auto down-casts to `number`, but must be explicitly cast to.
+
+
+--------
+### [0.5.0](https://github.com/TeamworkGuy2/ts-date-times/commit/c9b084aa832b94fd1389b52ed0454025f7065edc) - 2016-12-21
+#### Changed
+* TimestampUtc interface now extends Number and has a marker property so that it behaves as a strong type
 
 
 --------

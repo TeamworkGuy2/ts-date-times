@@ -23,7 +23,7 @@ suite("DateTimes", function DateTimesTest() {
 
 
     function testDotNetJsonTimestamp(asr: Chai.AssertStatic) {
-        var now = <TimestampUtc><any>Date.now();
+        var now = <TimestampUtc>Date.now();
         var jsonTimestamp = Timestamps.toDotNetJson(now);
         var res = Timestamps.parseDotNetJson(jsonTimestamp);
         asr.equal(now, res);
@@ -115,25 +115,25 @@ suite("DateTimes", function DateTimesTest() {
 
     test("Timestamp.getDayMinutes", function getDayMinutesTest() {
         var date = new Date(2000, 0, 27, 2, 14);
-        var res = Timestamps.getDayMinutes(<TimestampUtc><any>date.getTime());
+        var res = Timestamps.getDayMinutes(<TimestampUtc>date.getTime());
         asr.equal(134, res);
     });
 
 
     test("Timestamp.toDisplayDate", function toDisplayDateTest() {
-        var res1 = Timestamps.toDisplayDate(<TimestampUtc><any>new Date(2000, 0, 27, 2, 14).getTime());
+        var res1 = Timestamps.toDisplayDate(<TimestampUtc>new Date(2000, 0, 27, 2, 14).getTime());
         asr.equal("01/27/2000", res1);
 
-        var res2 = Timestamps.toDisplayDate(<TimestampUtc><any>new Date(2000, 0, 9, 2, 14).getTime(), "-");
+        var res2 = Timestamps.toDisplayDate(<TimestampUtc>new Date(2000, 0, 9, 2, 14).getTime(), "-");
         asr.equal("01-09-2000", res2);
     });
 
 
     test("Timestamp.toDisplayDateTime", function toDisplayDateTimeTest() {
-        var res1 = Timestamps.toDisplayDateTime(<TimestampUtc><any>new Date(2000, 0, 27, 0, 0).getTime(), false);
+        var res1 = Timestamps.toDisplayDateTime(<TimestampUtc>new Date(2000, 0, 27, 0, 0).getTime(), false);
         asr.equal("01/27/2000", res1);
 
-        var res1 = Timestamps.toDisplayDateTime(<TimestampUtc><any>new Date(2000, 0, 27, 2, 14).getTime(), false);
+        var res1 = Timestamps.toDisplayDateTime(<TimestampUtc>new Date(2000, 0, 27, 2, 14).getTime(), false);
         asr.equal("01/27/2000 02:14 a.m.", res1);
 
         var res1 = Timestamps.toDisplayDateTime(<TimestampUtc><any>new Date(2000, 0, 27, 23, 8).getTime(), false);

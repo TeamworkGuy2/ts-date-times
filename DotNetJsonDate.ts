@@ -29,7 +29,7 @@ module DotNetJsonDate {
         if (date == null || isNaN(time = <number>date.getTime())) {
             throw new Error("cannot convert null or invalid date to .NET JSON string");
         }
-        return Timestamps.toDotNetJson(<TimestampUtc><any>time);
+        return Timestamps.toDotNetJson(<TimestampUtc>time);
     }
 
 }
