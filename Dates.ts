@@ -13,7 +13,7 @@ module Dates {
     }
 
 
-    /** Convert a date to a string. The display date is in the current timezone.
+    /** Convert a date to a string. The display date is in the current timezone. The format is 'mm/dd/yyyy'
      * @param date: the date to convert to a display date string
      * @param [separator='/']: optional separator such as '/' or '-' to separate the 'mm', 'dd', and 'yyyy' portions of the returned date string
      * @return the date represented by the timestamp in the format 'mm/dd/yyyy'
@@ -26,7 +26,7 @@ module Dates {
     }
 
 
-    /** Convert a date to a date-time string. The display date-time is in the current timezone.
+    /** Convert a date to a date-time string. The display date-time is in the current timezone. The format is 'mm/dd/yyyy hh:mm am/pm'
      * @param date: the date to convert to a date-time string
      * @param [includingMidnight=false]: if true AND date is midnight, returns only the 'mm/dd/yyyy' portion of the date representation
      * @return the date-time representated by the timestamp in the format 'mm/dd/yyyy hh:mm am/pm'
@@ -37,14 +37,24 @@ module Dates {
         if (!includingMidnight && hrs === 0 && mins === 0) {
             return Dates.toDisplayDate(date);
         }
+
+        return Dates.toDisplayDate(date) + ' ' + Dates.toDisplayTime(date);
+    }
+
+
+    /** Convert a date to a time string. The display time is in the current timezone. The format is 'hh:mm am/pm'
+     * @param date: the date to convert to a time string
+     * @return the time representated by the timestamp in the format 'hh:mm am/pm'
+     */
+    export function toDisplayTime(date: Date): string {
+        var hrs = date.getHours();
+        var mins = date.getMinutes();
         var ampm = hrs < 12 ? 'a.m.' : 'p.m.';
         hrs = hrs % 12;
         if (hrs === 0) {
             hrs = 12;
         }
-        return Dates.toDisplayDate(date) +
-            ' ' + (hrs <= 9 ? '0' + hrs : '' + hrs) +
-            ':' + (mins <= 9 ? '0' + mins : '' + mins) + ' ' + ampm;
+        return (hrs <= 9 ? '0' + hrs : '' + hrs) + ':' + (mins <= 9 ? '0' + mins : '' + mins) + ' ' + ampm;
     }
 
 

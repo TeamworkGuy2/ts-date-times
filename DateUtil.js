@@ -15,12 +15,18 @@ var DateUtil;
         return base.getTime() < date.getTime();
     }
     DateUtil.isBefore = isBefore;
+    /** Check whether two dates are the same year-month-day
+     */
+    function isSameDate(date1, date2) {
+        return date1.getFullYear() === date2.getFullYear() && date1.getMonth() === date2.getMonth() && date1.getDate() === date2.getDate();
+    }
+    DateUtil.isSameDate = isSameDate;
     /** Get the number of milliseconds between two dates
      */
-    function getTimeSince(base, date) {
+    function getMillisSince(base, date) {
         return base.getTime() - date.getTime();
     }
-    DateUtil.getTimeSince = getTimeSince;
+    DateUtil.getMillisSince = getMillisSince;
     /** Returns a midnight date of the first Sunday previous to the given date
      */
     function getPreviousSunday(date) {
@@ -32,7 +38,7 @@ var DateUtil;
     DateUtil.getPreviousSunday = getPreviousSunday;
     function getDayInYear(date) {
         var startOfYear = newMidnightDate(date.getFullYear(), 0, 1);
-        return 1 + Math.floor(getTimeSince(date, startOfYear) / DateConstants.MILLIS_PER_DAY);
+        return 1 + Math.floor(getMillisSince(date, startOfYear) / DateConstants.MILLIS_PER_DAY);
     }
     DateUtil.getDayInYear = getDayInYear;
     function getWeekInMonth(date, minimalDaysInFirstWeek) {
@@ -42,7 +48,7 @@ var DateUtil;
         var previousSunday = getPreviousSunday(date);
         var startOfMonth = newMidnightDate(date.getFullYear(), date.getMonth(), 1);
         var numberOfSundays = isBefore(previousSunday, startOfMonth) ?
-            0 : 1 + Math.floor(getTimeSince(previousSunday, startOfMonth) / DateConstants.MILLIS_PER_WEEK);
+            0 : 1 + Math.floor(getMillisSince(previousSunday, startOfMonth) / DateConstants.MILLIS_PER_WEEK);
         var numberOfDaysInFirstWeek = 7 - startOfMonth.getDay();
         var weekInMonth = numberOfSundays;
         if (numberOfDaysInFirstWeek >= minimalDaysInFirstWeek) {
@@ -57,7 +63,7 @@ var DateUtil;
         }
         var previousSunday = getPreviousSunday(date);
         var startOfYear = newMidnightDate(date.getFullYear(), 0, 1);
-        var weeksSinceSartOfYear = Math.floor(getTimeSince(previousSunday, startOfYear) / DateConstants.MILLIS_PER_WEEK);
+        var weeksSinceSartOfYear = Math.floor(getMillisSince(previousSunday, startOfYear) / DateConstants.MILLIS_PER_WEEK);
         var numberOfSundays = isBefore(previousSunday, startOfYear) ? 0 : 1 + weeksSinceSartOfYear;
         var numberOfDaysInFirstWeek = 7 - startOfYear.getDay();
         var weekInYear = numberOfSundays;

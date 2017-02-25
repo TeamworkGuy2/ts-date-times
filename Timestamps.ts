@@ -119,6 +119,15 @@ module Timestamps {
         return Dates.toDisplayDateTime(new Date(<number>timestamp), includingMidnight);
     }
 
+
+    /** Convert a timestamp to a time string. The displayed time is in the current timezone.
+     * @param timestamp: the timestamp to convert to a time string
+     * @return the time representated by the timestamp in the format 'hh:mm am/pm'
+     */
+    export function toDisplayTime(timestamp: TimestampUtc): string {
+        return Dates.toDisplayTime(new Date(<number>timestamp));
+    }
+
 }
 
 export = Timestamps;

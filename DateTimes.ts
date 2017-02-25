@@ -3,11 +3,13 @@
 import DateConstants = require("./DateConstants");
 import DotNetJsonDate = require("./DotNetJsonDate");
 import Dates = require("./Dates");
+import DateUtil = require("./DateUtil");
 import Timestamps = require("./Timestamps");
 
 var dc = DateConstants;
 var dnjd = DotNetJsonDate;
 var d = Dates;
+var du = DateUtil;
 var ts = Timestamps;
 
 /** DateTimes - contains static sub-modules for date and time operations, including:
@@ -21,6 +23,8 @@ module DateTimes {
     export var DateConstants = dc;
 
     export var Dates = d;
+
+    export var DateUtil = du;
 
     export var Timestamps = ts;
 

@@ -5,7 +5,7 @@ import chai = require("chai");
 import mocha = require("mocha");
 import DateTimes = require("../DateTimes");
 
-var { DateConstants, Dates, Timestamps, DotNetJsonDate } = DateTimes;
+var { DateConstants, Dates, DateUtil, Timestamps, DotNetJsonDate } = DateTimes;
 
 var asr = chai.assert;
 
@@ -136,8 +136,30 @@ suite("DateTimes", function DateTimesTest() {
         var res1 = Timestamps.toDisplayDateTime(<TimestampUtc>new Date(2000, 0, 27, 2, 14).getTime(), false);
         asr.equal("01/27/2000 02:14 a.m.", res1);
 
-        var res1 = Timestamps.toDisplayDateTime(<TimestampUtc><any>new Date(2000, 0, 27, 23, 8).getTime(), false);
+        var res1 = Timestamps.toDisplayDateTime(<TimestampUtc>new Date(2000, 0, 27, 23, 8).getTime(), false);
         asr.equal("01/27/2000 11:08 p.m.", res1);
+    });
+
+    test("Timestamp.toDisplayTime", function toDisplayTimeTest() {
+        var res1 = Timestamps.toDisplayTime(<TimestampUtc>new Date(2000, 0, 27, 0, 0).getTime());
+        asr.equal("12:00 a.m.", res1);
+
+        var res1 = Timestamps.toDisplayTime(<TimestampUtc>new Date(2000, 0, 27, 2, 14).getTime());
+        asr.equal("02:14 a.m.", res1);
+
+        var res1 = Timestamps.toDisplayTime(<TimestampUtc>new Date(2000, 0, 27, 23, 8).getTime());
+        asr.equal("11:08 p.m.", res1);
+    });
+
+    test("Timestamp.isSameDate", function isSameDateTest() {
+        var res1 = DateUtil.isSameDate(new Date(2000, 0, 27), new Date(2000, 0, 28));
+        asr.equal(false, res1);
+
+        var res1 = DateUtil.isSameDate(new Date(2000, 0, 27, 2, 14), new Date(2000, 0, 27, 23));
+        asr.equal(true, res1);
+
+        var res1 = DateUtil.isSameDate(new Date(2000, 0, 27, 23, 8), new Date(2000, 0, 27));
+        asr.equal(true, res1);
     });
 
 });

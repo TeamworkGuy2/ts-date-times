@@ -8,8 +8,14 @@ module DateConstants {
     /** Full, capitialized, English names of the gregorian calendar months of the year (January, February, ...) */
     export var MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
+    /** Abbreviated, capitialized, English names of the gregorian calendar months of the year (Jan, Feb, ...) */
+    export var MONTHS_SHORT = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
     /** Full, capitialized, English names of the gregorian calendar days of the week (i.e. Sunday, Monday, ...) */
     export var DAYS_OF_WEEK = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+    /** Abbreviated, capitialized, English names of the gregorian calendar days of the week (i.e. Sun, Mon, ...) */
+    export var DAYS_OF_WEEK_SHORT = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
     /** the current local timezone offset in milliseconds */
     export var currentTimezoneOffsetMillis = (new Date().getTimezoneOffset() * 60 * 1000);

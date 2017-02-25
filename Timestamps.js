@@ -107,5 +107,13 @@ var Timestamps;
         return Dates.toDisplayDateTime(new Date(timestamp), includingMidnight);
     }
     Timestamps.toDisplayDateTime = toDisplayDateTime;
+    /** Convert a timestamp to a time string. The displayed time is in the current timezone.
+     * @param timestamp: the timestamp to convert to a time string
+     * @return the time representated by the timestamp in the format 'hh:mm am/pm'
+     */
+    function toDisplayTime(timestamp) {
+        return Dates.toDisplayTime(new Date(timestamp));
+    }
+    Timestamps.toDisplayTime = toDisplayTime;
 })(Timestamps || (Timestamps = {}));
 module.exports = Timestamps;

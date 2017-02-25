@@ -3,10 +3,12 @@
 var DateConstants = require("./DateConstants");
 var DotNetJsonDate = require("./DotNetJsonDate");
 var Dates = require("./Dates");
+var DateUtil = require("./DateUtil");
 var Timestamps = require("./Timestamps");
 var dc = DateConstants;
 var dnjd = DotNetJsonDate;
 var d = Dates;
+var du = DateUtil;
 var ts = Timestamps;
 /** DateTimes - contains static sub-modules for date and time operations, including:
  * - DateConstants: for date constants such as the days of the week or milliseconds in a day
@@ -18,6 +20,7 @@ var DateTimes;
 (function (DateTimes) {
     DateTimes.DateConstants = dc;
     DateTimes.Dates = d;
+    DateTimes.DateUtil = du;
     DateTimes.Timestamps = ts;
     DateTimes.DotNetJsonDate = dnjd;
 })(DateTimes || (DateTimes = {}));

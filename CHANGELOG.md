@@ -4,7 +4,19 @@ This project does its best to adhere to [Semantic Versioning](http://semver.org/
 
 
 --------
-### [0.6.0](N/A) - 2016-12-31
+### [0.7.0](N/A) - 2017-02-25
+#### Added
+* DateConstants MONTHS_SHORT and DAYS_OF_WEEK_SHORT
+* Dates.toDisplayTime() and Timestamps.toDisplayTime()
+* DateUtil.isSameDate()
+* DateTimes.DateUtil
+
+#### Changed
+* Renamed DateUtil getTimeSince() to getMillisSince()
+
+
+--------
+### [0.6.0](https://github.com/TeamworkGuy2/ts-date-times/commit/56c9278885b18269daedc26375582d8df015fe76) - 2016-12-31
 #### Changed
 * TimestampUtc better nominal type behavior, changed from an `interface` to a `type` which auto down-casts to `number`, but must be explicitly cast to.
 
