@@ -58,9 +58,9 @@ module Dates {
     }
 
 
-    /** Calculates the number of days between {@code dtLeft - dtRight}
+    /** Calculates the number of days between 'dtLeft - dtRight'
      * @param [incrementAtMidnight=false]: if true, assumes dtRight's time is midnight and counts from dtRight's date
-     * (i.e.if {@code incrementAtMidnight == true} then 2001-3-15 2:43 is the same day as 2001-3-15 19:39, even though the dates are more than 12 hours apart)
+     * (i.e.if incrementAtMidnight == true then 2001-3-15 2:43 is the same day as 2001-3-15 19:39, even though the dates are more than 12 hours apart)
      */
     export function dayDiff(dtLeft: Date, dtRight: Date, incrementAtMidnight: boolean = false): number {
         var daysDiff = ((<number>dtLeft.getTime() - <number>dtRight.getTime()) / DateConstants.MILLIS_PER_DAY);

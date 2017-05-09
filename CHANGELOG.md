@@ -4,7 +4,14 @@ This project does its best to adhere to [Semantic Versioning](http://semver.org/
 
 
 --------
-### [0.7.0](N/A) - 2017-02-25
+### [0.7.1](N/A) - 2017-05-09
+#### Changed
+* Updated to TypeScript 2.3, add tsconfig.json, use @types/ definitions
+* Updated documentation to work better with Visual Studio
+
+
+--------
+### [0.7.0](https://github.com/TeamworkGuy2/ts-date-times/commit/4da61a4f81139fc9417456eac367745ea31c960c) - 2017-02-25
 #### Added
 * DateConstants MONTHS_SHORT and DAYS_OF_WEEK_SHORT
 * Dates.toDisplayTime() and Timestamps.toDisplayTime()
