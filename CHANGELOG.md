@@ -4,7 +4,13 @@ This project does its best to adhere to [Semantic Versioning](http://semver.org/
 
 
 --------
-### [0.7.1](N/A) - 2017-05-09
+### [0.7.2](N/A) - 2017-08-05
+#### Changed
+* Updated to TypeScript 2.4
+
+
+--------
+### [0.7.1](https://github.com/TeamworkGuy2/ts-date-times/commit/6e5e8528ad1b7d6621ac792945bc4af1be98e6c2) - 2017-05-09
 #### Changed
 * Updated to TypeScript 2.3, add tsconfig.json, use @types/ definitions
 * Updated documentation to work better with Visual Studio

@@ -1,15 +1,15 @@
 {
   "name": "ts-date-times",
-  "version": "0.7.1",
+  "version": "0.7.2",
   "description": "Manage dates, timestamps, and .NET DateTime JSON in TypeScript",
   "dependencies": {
   },
   "devDependencies": {
     "@types/chai": "~3.5.0",
     "@types/mocha": "~2.2.0",
-    "chai": "~3.5.0",
-    "mocha": "~3.0.0",
-    "typescript": "~2.3.0"
+    "chai": "~4.1.0",
+    "mocha": "~3.5.0",
+    "typescript": "~2.4.0"
   },
   "scripts": {
     "test": "mocha -u tdd --recursive"

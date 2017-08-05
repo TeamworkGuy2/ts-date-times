@@ -1,5 +1,5 @@
-/// <reference path="./date-times.d.ts" />
 "use strict";
+/// <reference path="./date-times.d.ts" />
 var DateConstants = require("./DateConstants");
 var DotNetJsonDate = require("./DotNetJsonDate");
 var Dates = require("./Dates");

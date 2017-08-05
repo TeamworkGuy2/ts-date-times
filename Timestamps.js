@@ -30,7 +30,7 @@ var Timestamps;
     }
     Timestamps.parseUtc = parseUtc;
     /** Convert a millisecond UTC timestamp to a Date
-     * @param timestamp: convert a timestamp to a {@link Date}
+     * @param timestamp: convert a timestamp to a Date
      * @return the date created from the timestamp
      */
     function toDate(timestamp) {
@@ -38,12 +38,12 @@ var Timestamps;
     }
     Timestamps.toDate = toDate;
     /** Parse a JSON string representing a .NET DateTime value
-     * @param dateString: a .NET date string in the format {@code "/Date(1415354400000-0500)/"},
+     * @param dateString: a .NET date string in the format "/Date(1415354400000-0500)/",
      * or a numeric timestamp which is returned as-is
      * @param [ignoreTimezoneAssumeUtc=true]: true to ignore embeded timezone offset in the date string and
      * treat the date as a UTC timestamp and apply the current timezone offset, false to parse any
      * embeded timezone from the date string or apply no timezone offset if there is none
-     * @return the epoch millisecond timestamp value of the input {@code dateString}
+     * @return the epoch millisecond timestamp value of the input 'dateString'
      */
     function parseDotNetJson(dateString, errorIfNoneUtcTimezone) {
         if (errorIfNoneUtcTimezone === void 0) { errorIfNoneUtcTimezone = true; }

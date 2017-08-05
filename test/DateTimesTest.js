@@ -1,6 +1,5 @@
-/// <reference path="../../definitions/chai/chai.d.ts" />
-/// <reference path="../../definitions/mocha/mocha.d.ts" />
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 var chai = require("chai");
 var DateTimes = require("../DateTimes");
 var DateConstants = DateTimes.DateConstants, Dates = DateTimes.Dates, DateUtil = DateTimes.DateUtil, Timestamps = DateTimes.Timestamps, DotNetJsonDate = DateTimes.DotNetJsonDate;

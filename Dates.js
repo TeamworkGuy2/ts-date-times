@@ -54,9 +54,9 @@ var Dates;
         return (hrs <= 9 ? '0' + hrs : '' + hrs) + ':' + (mins <= 9 ? '0' + mins : '' + mins) + ' ' + ampm;
     }
     Dates.toDisplayTime = toDisplayTime;
-    /** Calculates the number of days between {@code dtLeft - dtRight}
+    /** Calculates the number of days between 'dtLeft - dtRight'
      * @param [incrementAtMidnight=false]: if true, assumes dtRight's time is midnight and counts from dtRight's date
-     * (i.e.if {@code incrementAtMidnight == true} then 2001-3-15 2:43 is the same day as 2001-3-15 19:39, even though the dates are more than 12 hours apart)
+     * (i.e.if incrementAtMidnight == true then 2001-3-15 2:43 is the same day as 2001-3-15 19:39, even though the dates are more than 12 hours apart)
      */
     function dayDiff(dtLeft, dtRight, incrementAtMidnight) {
         if (incrementAtMidnight === void 0) { incrementAtMidnight = false; }
