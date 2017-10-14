@@ -11,11 +11,11 @@ module DotNetJsonDate {
      * @return a new date object created from the 'dateStr'
      * @throws an error if the 'dateStr' is null or empty
      */
-    export function parseDotNetJson(dateStr: string): Date {
+    export function parseDotNetJson(dateStr: string | DateDotNetJson): Date {
         // parseDotNetJson() will handle null/empty values and throw an error
         var time = Timestamps.parseDotNetJson(dateStr);
         // Use the UTC epoch timestamp to create a local date
-        return new Date(time);
+        return new Date(<number>time);
     }
 
 
@@ -24,7 +24,7 @@ module DotNetJsonDate {
      * @return a .NET web service date-time string representation
      * @throws an error if the 'date' is null or empty
      */
-    export function toDotNetJson(date?: Date): string {
+    export function toDotNetJson(date: Date | null | undefined): DateDotNetJson {
         var time: number;
         if (date == null || isNaN(time = <number>date.getTime())) {
             throw new Error("cannot convert null or invalid date to .NET JSON string");

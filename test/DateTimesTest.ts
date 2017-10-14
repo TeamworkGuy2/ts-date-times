@@ -12,20 +12,20 @@ suite("DateTimes", function DateTimesTest() {
     function testDotNetJson(asr: Chai.AssertStatic) {
         var date = new Date(2000, 0, 27);
         var jsonTimestamp = DotNetJsonDate.toDotNetJson(date);
-        var res = DotNetJsonDate.parseDotNetJson(jsonTimestamp);
-        asr.equal(date.getTime(), res.getTime());
+        asr.equal(date.getTime(), DotNetJsonDate.parseDotNetJson(jsonTimestamp).getTime());
 
-        asr.equal(new Date(0).getTime(), DotNetJsonDate.parseDotNetJson(Timestamps.toDotNetJson(null)).getTime());
+        asr.equal(new Date(0).getTime(), DotNetJsonDate.parseDotNetJson(Timestamps.toDotNetJson(<TimestampUtc><any>null)).getTime());
+        asr.equal(new Date(0).getTime(), DotNetJsonDate.parseDotNetJson(Timestamps.toDotNetJson(<TimestampUtc>0)).getTime());
     }
 
 
     function testDotNetJsonTimestamp(asr: Chai.AssertStatic) {
         var now = <TimestampUtc>Date.now();
         var jsonTimestamp = Timestamps.toDotNetJson(now);
-        var res = Timestamps.parseDotNetJson(jsonTimestamp);
-        asr.equal(now, res);
+        asr.equal(now, Timestamps.parseDotNetJson(jsonTimestamp));
 
-        asr.equal(new Date(0).getTime(), Timestamps.parseDotNetJson(Timestamps.toDotNetJson(null)));
+        asr.equal(new Date(0).getTime(), Timestamps.parseDotNetJson(Timestamps.toDotNetJson(<TimestampUtc><any>null)));
+        asr.equal(new Date(0).getTime(), Timestamps.parseDotNetJson(Timestamps.toDotNetJson(<TimestampUtc>0)));
     }
 
 

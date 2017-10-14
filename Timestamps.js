@@ -29,14 +29,6 @@ var Timestamps;
         return (isNaN(val) || !isFinite(val) ? null : val);
     }
     Timestamps.parseUtc = parseUtc;
-    /** Convert a millisecond UTC timestamp to a Date
-     * @param timestamp: convert a timestamp to a Date
-     * @return the date created from the timestamp
-     */
-    function toDate(timestamp) {
-        return new Date(timestamp);
-    }
-    Timestamps.toDate = toDate;
     /** Parse a JSON string representing a .NET DateTime value
      * @param dateString: a .NET date string in the format "/Date(1415354400000-0500)/",
      * or a numeric timestamp which is returned as-is
@@ -54,7 +46,7 @@ var Timestamps;
             return dateString;
         }
         // Split the date string into parts. e.g. "/Date(1415354400000-0500)/" gets parsed into "1415354400000", "-", and "0500"
-        var dateObj = dateString.match(dotNetJsonDateRegex);
+        var dateObj = dateString.match(dotNetJsonDateRegex) || [];
         var timeZoneOffsetMs = 0;
         if (dateObj.length > 2) {
             // parse the '+/- ####' timezone offset at the end of the date string as a 'hhmm' timezone offset
@@ -73,12 +65,20 @@ var Timestamps;
         return time;
     }
     Timestamps.parseDotNetJson = parseDotNetJson;
+    /** Convert a millisecond UTC timestamp to a Date
+     * @param timestamp: convert a timestamp to a Date
+     * @return the date created from the timestamp
+     */
+    function toDate(timestamp) {
+        return new Date(timestamp);
+    }
+    Timestamps.toDate = toDate;
     /** Convert a date to a string in the format supported by a .NET web service
      * @param timestamp: the timestamp to convert
      * @return a .NET web service date-time string representation
      */
     function toDotNetJson(timestamp) {
-        var dateStr = "/Date(" + (timestamp || 0) + ")/";
+        var dateStr = "/Date(" + (timestamp || 0) + ")/"; // TODO remove (... || 0) in future
         return dateStr;
     }
     Timestamps.toDotNetJson = toDotNetJson;

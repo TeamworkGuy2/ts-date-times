@@ -3,7 +3,7 @@ var DateConstants = require("./DateConstants");
 var DateUtil;
 (function (DateUtil) {
     DateUtil.DEFAULT_MINIMAL_DAYS_IN_FIRST_WEEK = 1;
-    /** Create a midnight (00:00) date for the given year, month, date
+    /** Create a midnight (00:00) date for the given year, month, date using the Date constructor
      */
     function newMidnightDate(year, month, day) {
         return new Date(year, month, day, 0, 0, 0, 0);

@@ -4,7 +4,15 @@ This project does its best to adhere to [Semantic Versioning](http://semver.org/
 
 
 --------
-### [0.7.2](N/A) - 2017-08-05
+### [0.7.3](N/A) - 2017-10-14
+#### Changed
+* New `DateDotNetJson` type (for the formatted strings returned by various `toDotNetJson()` functions), this is a nominal type based on `string`
+* Changed the various `parseDotNetjson()` function parameters to accept new `DateDotNetJson` type in addition to string
+* `tsconfig.json` added `noImplicitAny`, `noImplicitThis`, and `strictNullChecks` flags and fixed any related code
+
+
+--------
+### [0.7.2](https://github.com/TeamworkGuy2/ts-date-times/commit/f6792c3fd377bc33f8d2a23b34c7b4cdd962306f) - 2017-08-05
 #### Changed
 * Updated to TypeScript 2.4
 

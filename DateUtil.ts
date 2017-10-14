@@ -4,7 +4,7 @@ module DateUtil {
     export var DEFAULT_MINIMAL_DAYS_IN_FIRST_WEEK = 1;
 
 
-    /** Create a midnight (00:00) date for the given year, month, date
+    /** Create a midnight (00:00) date for the given year, month, date using the Date constructor
      */
     export function newMidnightDate(year: number, month: number, day: number): Date {
         return new Date(year, month, day, 0, 0, 0, 0);
@@ -13,21 +13,21 @@ module DateUtil {
 
     /** Check if the first argument is an earlier date than the second argument
      */
-    export function isBefore(base: Date, date: Date) {
+    export function isBefore(base: Date, date: Date): boolean {
         return base.getTime() < date.getTime();
     }
 
 
     /** Check whether two dates are the same year-month-day
      */
-    export function isSameDate(date1: Date, date2: Date) {
+    export function isSameDate(date1: Date, date2: Date): boolean {
         return date1.getFullYear() === date2.getFullYear() && date1.getMonth() === date2.getMonth() && date1.getDate() === date2.getDate();
     }
 
 
     /** Get the number of milliseconds between two dates
      */
-    export function getMillisSince(base: Date, date: Date) {
+    export function getMillisSince(base: Date, date: Date): number {
         return <number>base.getTime() - <number>date.getTime();
     }
 
@@ -48,7 +48,7 @@ module DateUtil {
     }
 
 
-    export function getWeekInMonth(date: Date, minimalDaysInFirstWeek?: number): number {
+    export function getWeekInMonth(date: Date, minimalDaysInFirstWeek?: number | null | undefined): number {
         if (minimalDaysInFirstWeek == null) {
             minimalDaysInFirstWeek = DEFAULT_MINIMAL_DAYS_IN_FIRST_WEEK;
         }
@@ -65,7 +65,7 @@ module DateUtil {
     }
 
 
-    export function getWeekInYear(date: Date, minimalDaysInFirstWeek?: number): number {
+    export function getWeekInYear(date: Date, minimalDaysInFirstWeek?: number | null | undefined): number {
         if (minimalDaysInFirstWeek == null) {
             minimalDaysInFirstWeek = DEFAULT_MINIMAL_DAYS_IN_FIRST_WEEK;
         }

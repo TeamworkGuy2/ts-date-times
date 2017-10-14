@@ -34,15 +34,6 @@ module Timestamps {
     }
 
 
-    /** Convert a millisecond UTC timestamp to a Date
-     * @param timestamp: convert a timestamp to a Date
-     * @return the date created from the timestamp
-     */
-    export function toDate(timestamp: TimestampUtc): Date {
-        return new Date(<number>timestamp);
-    }
-
-
     /** Parse a JSON string representing a .NET DateTime value
      * @param dateString: a .NET date string in the format "/Date(1415354400000-0500)/",
      * or a numeric timestamp which is returned as-is
@@ -51,7 +42,7 @@ module Timestamps {
      * embeded timezone from the date string or apply no timezone offset if there is none
      * @return the epoch millisecond timestamp value of the input 'dateString'
      */
-    export function parseDotNetJson(dateString: string | number | TimestampUtc, errorIfNoneUtcTimezone: boolean = true): TimestampUtc {
+    export function parseDotNetJson(dateString: string | number | DateDotNetJson | TimestampUtc, errorIfNoneUtcTimezone: boolean = true): TimestampUtc {
         if (!dateString) {
             throw new Error("cannot parse null or empty date string '" + dateString + "'");
         }
@@ -60,7 +51,7 @@ module Timestamps {
         }
 
         // Split the date string into parts. e.g. "/Date(1415354400000-0500)/" gets parsed into "1415354400000", "-", and "0500"
-        var dateObj = (<string>dateString).match(dotNetJsonDateRegex);
+        var dateObj = (<string>dateString).match(dotNetJsonDateRegex) || [];
         var timeZoneOffsetMs = 0;
         if (dateObj.length > 2) {
             // parse the '+/- ####' timezone offset at the end of the date string as a 'hhmm' timezone offset
@@ -82,13 +73,22 @@ module Timestamps {
     }
 
 
+    /** Convert a millisecond UTC timestamp to a Date
+     * @param timestamp: convert a timestamp to a Date
+     * @return the date created from the timestamp
+     */
+    export function toDate(timestamp: TimestampUtc): Date {
+        return new Date(<number>timestamp);
+    }
+
+
     /** Convert a date to a string in the format supported by a .NET web service
      * @param timestamp: the timestamp to convert
      * @return a .NET web service date-time string representation
      */
-    export function toDotNetJson(timestamp: TimestampUtc): string {
-        var dateStr = "/Date(" + (timestamp || 0) + ")/";
-        return dateStr;
+    export function toDotNetJson(timestamp: TimestampUtc): DateDotNetJson {
+        var dateStr = "/Date(" + (timestamp || 0) + ")/"; // TODO remove (... || 0) in future
+        return <DateDotNetJson>dateStr;
     }
 
 
