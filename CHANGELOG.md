@@ -4,7 +4,14 @@ This project does its best to adhere to [Semantic Versioning](http://semver.org/
 
 
 --------
-### [0.7.3](N/A) - 2017-10-14
+### [0.7.4](N/A) - 2018-03-01
+#### Changed
+* Update to TypeScript 2.7
+* Update dependencies: mocha, @types/chai, @types/mocha, @types/node
+
+
+--------
+### [0.7.3](https://github.com/TeamworkGuy2/ts-date-times/commit/8d777c39e7fbe888b2e0d9957af4524bea14e17c) - 2017-10-14
 #### Changed
 * New `DateDotNetJson` type (for the formatted strings returned by various `toDotNetJson()` functions), this is a nominal type based on `string`
 * Changed the various `parseDotNetjson()` function parameters to accept new `DateDotNetJson` type in addition to string
