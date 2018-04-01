@@ -4,7 +4,14 @@ This project does its best to adhere to [Semantic Versioning](http://semver.org/
 
 
 --------
-### [0.7.4](N/A) - 2018-03-01
+### [0.7.5](N/A) - 2018-03-31
+#### Changed
+* Update to TypeScript 2.8
+* Update tsconfig.json with `noImplicitReturns: true` and `forceConsistentCasingInFileNames: true`
+
+
+--------
+### [0.7.4](https://github.com/TeamworkGuy2/ts-date-times/commit/4d5fe7fe4f1bad50bfd65424f830d10ea4d28256) - 2018-03-01
 #### Changed
 * Update to TypeScript 2.7
 * Update dependencies: mocha, @types/chai, @types/mocha, @types/node
