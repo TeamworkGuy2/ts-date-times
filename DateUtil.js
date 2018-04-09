@@ -2,7 +2,7 @@
 var DateConstants = require("./DateConstants");
 var DateUtil;
 (function (DateUtil) {
-    DateUtil.DEFAULT_MINIMAL_DAYS_IN_FIRST_WEEK = 1;
+    DateUtil.DEFAULT_MIN_DAYS_IN_FIRST_WEEK = 1;
     /** Create a midnight (00:00) date for the given year, month, date using the Date constructor
      */
     function newMidnightDate(year, month, day) {
@@ -41,9 +41,9 @@ var DateUtil;
         return 1 + Math.floor(getMillisSince(date, startOfYear) / DateConstants.MILLIS_PER_DAY);
     }
     DateUtil.getDayInYear = getDayInYear;
-    function getWeekInMonth(date, minimalDaysInFirstWeek) {
-        if (minimalDaysInFirstWeek == null) {
-            minimalDaysInFirstWeek = DateUtil.DEFAULT_MINIMAL_DAYS_IN_FIRST_WEEK;
+    function getWeekInMonth(date, minDaysInFirstWeek) {
+        if (minDaysInFirstWeek == null) {
+            minDaysInFirstWeek = DateUtil.DEFAULT_MIN_DAYS_IN_FIRST_WEEK;
         }
         var previousSunday = getPreviousSunday(date);
         var startOfMonth = newMidnightDate(date.getFullYear(), date.getMonth(), 1);
@@ -51,15 +51,15 @@ var DateUtil;
             0 : 1 + Math.floor(getMillisSince(previousSunday, startOfMonth) / DateConstants.MILLIS_PER_WEEK);
         var numberOfDaysInFirstWeek = 7 - startOfMonth.getDay();
         var weekInMonth = numberOfSundays;
-        if (numberOfDaysInFirstWeek >= minimalDaysInFirstWeek) {
+        if (numberOfDaysInFirstWeek >= minDaysInFirstWeek) {
             weekInMonth++;
         }
         return weekInMonth;
     }
     DateUtil.getWeekInMonth = getWeekInMonth;
-    function getWeekInYear(date, minimalDaysInFirstWeek) {
-        if (minimalDaysInFirstWeek == null) {
-            minimalDaysInFirstWeek = DateUtil.DEFAULT_MINIMAL_DAYS_IN_FIRST_WEEK;
+    function getWeekInYear(date, minDaysInFirstWeek) {
+        if (minDaysInFirstWeek == null) {
+            minDaysInFirstWeek = DateUtil.DEFAULT_MIN_DAYS_IN_FIRST_WEEK;
         }
         var previousSunday = getPreviousSunday(date);
         var startOfYear = newMidnightDate(date.getFullYear(), 0, 1);
@@ -67,7 +67,7 @@ var DateUtil;
         var numberOfSundays = isBefore(previousSunday, startOfYear) ? 0 : 1 + weeksSinceSartOfYear;
         var numberOfDaysInFirstWeek = 7 - startOfYear.getDay();
         var weekInYear = numberOfSundays;
-        if (numberOfDaysInFirstWeek < minimalDaysInFirstWeek) {
+        if (numberOfDaysInFirstWeek < minDaysInFirstWeek) {
             weekInYear--;
         }
         return weekInYear;

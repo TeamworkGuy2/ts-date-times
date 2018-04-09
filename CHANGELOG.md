@@ -4,7 +4,13 @@ This project does its best to adhere to [Semantic Versioning](http://semver.org/
 
 
 --------
-### [0.7.5](N/A) - 2018-03-31
+### [0.7.6](N/A) - 2018-04-09
+#### Changed
+* Added release tarball and npm script `build-package` to package.json referencing external process to generate tarball
+
+
+--------
+### [0.7.5](https://github.com/TeamworkGuy2/ts-date-times/commit/a7e889245dd0f11a3cab821f8df9d100a73d0944) - 2018-03-31
 #### Changed
 * Update to TypeScript 2.8
 * Update tsconfig.json with `noImplicitReturns: true` and `forceConsistentCasingInFileNames: true`

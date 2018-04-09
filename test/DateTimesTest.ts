@@ -1,6 +1,6 @@
 ﻿import chai = require("chai");
 import mocha = require("mocha");
-import DateTimes = require("../DateTimes");
+import DateTimes = require("../index");
 
 var { DateConstants, Dates, DateUtil, Timestamps, DotNetJsonDate } = DateTimes;
 

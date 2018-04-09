@@ -1,10 +1,11 @@
 {
   "name": "ts-date-times",
-  "version": "0.7.5",
+  "version": "0.7.6",
   "description": "Manage dates, timestamps, and .NET DateTime JSON in TypeScript",
   "author": "TeamworkGuy2",
   "homepage": "https://github.com/TeamworkGuy2/ts-date-times",
   "license": "MIT",
+  "main": "index.js",
   "dependencies": {
   },
   "devDependencies": {
@@ -12,9 +13,11 @@
     "@types/mocha": "~5.0.0",
     "chai": "~4.1.2",
     "mocha": "~5.0.5",
+    "package-tarball": "~0.1.0",
     "typescript": "~2.8.0"
   },
   "scripts": {
+    "build-package": "node ../package-tarball/index.js",
     "test": "mocha -u tdd --recursive",
     "tsc": "tsc"
   }

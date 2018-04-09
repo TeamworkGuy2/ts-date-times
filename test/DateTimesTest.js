@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var chai = require("chai");
-var DateTimes = require("../DateTimes");
+var DateTimes = require("../index");
 var DateConstants = DateTimes.DateConstants, Dates = DateTimes.Dates, DateUtil = DateTimes.DateUtil, Timestamps = DateTimes.Timestamps, DotNetJsonDate = DateTimes.DotNetJsonDate;
 var asr = chai.assert;
 suite("DateTimes", function DateTimesTest() {
