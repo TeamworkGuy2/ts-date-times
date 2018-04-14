@@ -4,8 +4,16 @@ This project does its best to adhere to [Semantic Versioning](http://semver.org/
 
 
 --------
-### [0.7.6](N/A) - 2018-04-09
+### [0.8.1](N/A) - 2018-04-14
 #### Changed
+* Forgot to update package.json version in 0.8.0 release
+* Forgot to include release tarball
+
+
+--------
+### [0.8.0](https://github.com/TeamworkGuy2/ts-date-times/commit/16e3a06868b8457b6568ace0e6bd013ec916c2b6) - 2018-04-09
+#### Changed
+* Renamed DateTimes.[ts|js] -> index.[ts|js] to follow standard npm package format
 * Added release tarball and npm script `build-package` to package.json referencing external process to generate tarball
 
 
