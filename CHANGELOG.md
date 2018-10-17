@@ -4,7 +4,16 @@ This project does its best to adhere to [Semantic Versioning](http://semver.org/
 
 
 --------
-### [0.8.1](N/A) - 2018-04-14
+### [0.8.2](N/A) - 2018-10-17
+#### Changed
+* Update to TypeScript 3.1
+* Update dev dependencies and @types
+* Enable `tsconfig.json` `strict`
+* Removed compiled bin tarball in favor of git tags
+
+
+--------
+### [0.8.1](https://github.com/TeamworkGuy2/ts-date-times/commit/bf3d1aa3873a0c9e843a645756ee9cc24ea76f37) - 2018-04-14
 #### Changed
 * Forgot to update package.json version in 0.8.0 release
 * Forgot to include release tarball
