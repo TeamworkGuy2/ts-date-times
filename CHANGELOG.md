@@ -4,7 +4,13 @@ This project does its best to adhere to [Semantic Versioning](http://semver.org/
 
 
 --------
-### [0.8.3](N/A) - 2018-12-29
+### [0.8.4](N/A) - 2019-07-06
+#### Changed
+* Update to TypeScript 3.5
+
+
+--------
+### [0.8.3](https://github.com/TeamworkGuy2/ts-date-times/commit/c10eecdf927c7975257fabda44a0d1c04edfbe0b) - 2018-12-29
 #### Changed
 * Update to TypeScript 3.2
 * Update @types/ dependencies
