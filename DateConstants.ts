@@ -1,5 +1,9 @@
 
 module DateConstants {
+    /** String to append to display times that are less than 12 hrs */
+    export var AM_STRING = "am";
+    /** String to append to display times that are greater than or equal to 12 hrs */
+    export var PM_STRING = "pm";
     /** Number of milliseconds in a 24 hour period */
     export var MILLIS_PER_DAY = 1000 * 60 * 60 * 24;
     /** Number of milliseconds in a 7 x 24 hour period */

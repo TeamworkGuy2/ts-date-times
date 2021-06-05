@@ -22,7 +22,7 @@ var Dates;
         var d = date.getDate();
         var mon = date.getMonth() + 1;
         var y = date.getFullYear();
-        return (mon <= 9 ? '0' + mon : '' + mon) + separator + (d <= 9 ? '0' + d : '' + d) + separator + y;
+        return (mon <= 9 ? "0" + mon : "" + mon) + separator + (d <= 9 ? "0" + d : "" + d) + separator + y;
     }
     Dates.toDisplayDate = toDisplayDate;
     /** Convert a date to a date-time string. The display date-time is in the current timezone. The format is 'mm/dd/yyyy hh:mm am/pm'
@@ -36,7 +36,7 @@ var Dates;
         if (!includingMidnight && hrs === 0 && mins === 0) {
             return Dates.toDisplayDate(date);
         }
-        return Dates.toDisplayDate(date) + ' ' + Dates.toDisplayTime(date);
+        return Dates.toDisplayDate(date) + " " + Dates.toDisplayTime(date);
     }
     Dates.toDisplayDateTime = toDisplayDateTime;
     /** Convert a date to a time string. The display time is in the current timezone. The format is 'hh:mm am/pm'
@@ -46,12 +46,12 @@ var Dates;
     function toDisplayTime(date) {
         var hrs = date.getHours();
         var mins = date.getMinutes();
-        var ampm = hrs < 12 ? 'a.m.' : 'p.m.';
+        var ampm = hrs < 12 ? DateConstants.AM_STRING : DateConstants.PM_STRING;
         hrs = hrs % 12;
         if (hrs === 0) {
             hrs = 12;
         }
-        return (hrs <= 9 ? '0' + hrs : '' + hrs) + ':' + (mins <= 9 ? '0' + mins : '' + mins) + ' ' + ampm;
+        return (hrs <= 9 ? "0" + hrs : "" + hrs) + ":" + (mins <= 9 ? "0" + mins : "" + mins) + " " + ampm;
     }
     Dates.toDisplayTime = toDisplayTime;
     /** Calculates the number of days between 'dtLeft - dtRight'

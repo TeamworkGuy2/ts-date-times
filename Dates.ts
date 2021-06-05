@@ -22,7 +22,7 @@ module Dates {
         var d = date.getDate();
         var mon = date.getMonth() + 1;
         var y = date.getFullYear();
-        return (mon <= 9 ? '0' + mon : '' + mon) + separator + (d <= 9 ? '0' + d : '' + d) + separator + y;
+        return (mon <= 9 ? "0" + mon : "" + mon) + separator + (d <= 9 ? "0" + d : "" + d) + separator + y;
     }
 
 
@@ -38,7 +38,7 @@ module Dates {
             return Dates.toDisplayDate(date);
         }
 
-        return Dates.toDisplayDate(date) + ' ' + Dates.toDisplayTime(date);
+        return Dates.toDisplayDate(date) + " " + Dates.toDisplayTime(date);
     }
 
 
@@ -49,12 +49,12 @@ module Dates {
     export function toDisplayTime(date: Date): string {
         var hrs = date.getHours();
         var mins = date.getMinutes();
-        var ampm = hrs < 12 ? 'a.m.' : 'p.m.';
+        var ampm = hrs < 12 ? DateConstants.AM_STRING : DateConstants.PM_STRING;
         hrs = hrs % 12;
         if (hrs === 0) {
             hrs = 12;
         }
-        return (hrs <= 9 ? '0' + hrs : '' + hrs) + ':' + (mins <= 9 ? '0' + mins : '' + mins) + ' ' + ampm;
+        return (hrs <= 9 ? "0" + hrs : "" + hrs) + ":" + (mins <= 9 ? "0" + mins : "" + mins) + " " + ampm;
     }
 
 

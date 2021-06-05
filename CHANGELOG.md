@@ -4,7 +4,14 @@ This project does its best to adhere to [Semantic Versioning](http://semver.org/
 
 
 --------
-### [0.9.0](N/A) - 2020-09-04
+### [0.10.0](N/A) - 2021-06-05
+#### Changed
+* `Dates` and `Timestampts` `toDisplayTime()` and `toDisplayDateTime()` AM/PM constants change from "a.m." and "p.m." to "am" and "pm"
+* AM/PM constant strings can be change via `DateConstants.AM_STRING` and `PM_STRING`
+
+
+--------
+### [0.9.0](https://github.com/TeamworkGuy2/ts-date-times/commit/899a284b73854b72a7592e38eb999d28b9f7db22) - 2020-09-04
 #### Changed
 * Update to TypeScript 4.0
 

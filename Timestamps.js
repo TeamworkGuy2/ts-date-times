@@ -101,6 +101,7 @@ var Timestamps;
     Timestamps.toDisplayDate = toDisplayDate;
     /** Convert a timestamp to a date-time string. The displayed date is in the current timezone.
      * @param timestamp: the timestamp to convert to a date-time string
+     * @param [includingMidnight=false]: if true AND date is midnight, returns only the 'mm/dd/yyyy' portion of the date representation
      * @return the date-time representated by the timestamp in the format 'mm/dd/yyyy hh:mm am/pm'
      */
     function toDisplayDateTime(timestamp, includingMidnight) {
